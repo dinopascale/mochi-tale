@@ -1,7 +1,13 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { getAllPosts } from '../lib/apit'
+import { Post } from '../types/post'
 
-const Home: NextPage = () => {
+type Props = {
+  allPosts: Post[]
+}
+
+const Home: NextPage<Props> = ({allPosts}) => {
   return (
     <div>
       <Head>
@@ -13,6 +19,15 @@ const Home: NextPage = () => {
       <main>
         <h1>
           Mochi Tale
+          {
+            allPosts.map(post => 
+              <pre key={post.slug}>
+                {post.author.name}
+                {post.slug}
+                {post.title}
+              </pre>
+            )
+          }
         </h1>
       </main>
 
@@ -23,3 +38,18 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+export const getStaticProps = async () => {
+  const allPosts = getAllPosts([
+    'title',
+    'date',
+    'slug',
+    'author',
+    'coverImage',
+    'excerpt',
+  ])
+
+  return {
+    props: { allPosts },
+  }
+}
