@@ -22,7 +22,7 @@ const Home: NextPage<Props> = ({allPosts}) => {
         <h1>
           Mochi Tale
           {
-            allPosts.map(post => 
+            allPosts.filter(post => !post.isDraft).map(post => 
               <div key={post.slug}>
                 <pre >
                   {post.author.name}
@@ -60,6 +60,7 @@ export const getStaticProps = async () => {
     'author',
     'coverImage',
     'excerpt',
+    'isDraft'
   ])
 
   return {

@@ -7,6 +7,7 @@ export interface Post {
   coverImage: string;
   author: Author;
   excerpt: string;
+  isDraft: boolean;
   ogImage: {
     url: string;
   };
