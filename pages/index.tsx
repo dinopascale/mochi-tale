@@ -1,7 +1,15 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
+import { getAllPosts } from '../lib/apit'
+import { Post } from '../types/post'
 
-const Home: NextPage = () => {
+type Props = {
+  allPosts: Post[]
+}
+
+const Home: NextPage<Props> = ({allPosts}) => {
+  
   return (
     <div>
       <Head>
@@ -13,6 +21,26 @@ const Home: NextPage = () => {
       <main>
         <h1>
           Mochi Tale
+          {
+            allPosts.map(post => 
+              <div key={post.slug}>
+                <pre >
+                  {post.author.name}
+                  {post.slug}
+                  {post.title}
+                </pre>
+                <div style={{ position: 'relative', width: '500px', height: '300px' }}>
+                  <Image
+                    alt="Mountains"
+                    src={post.coverImage}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+                <p>{post.excerpt}</p>
+              </div>
+            )
+          }
         </h1>
       </main>
 
@@ -23,3 +51,18 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+export const getStaticProps = async () => {
+  const allPosts = getAllPosts([
+    'title',
+    'date',
+    'slug',
+    'author',
+    'coverImage',
+    'excerpt',
+  ])
+
+  return {
+    props: { allPosts },
+  }
+}
