@@ -105,7 +105,9 @@ const posts = (await getCollection('blog')).sort(
 	</head>
 	<body>
 		<header class="navigation-header">
-			<Image src={logo} alt="A description of my image." width={120} height={120} />
+			<a href="/">
+				<Image src={logo} alt="logo for mochi tale blog" width={120} height={120} />
+			</a>
 		</header>
 		<main class="main-container">
 			<section id="hero-post" class="hero-post">
