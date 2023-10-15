@@ -2,7 +2,12 @@ body {
   font-family: "Roboto Mono", monospace;
 }
 
+body > .navigation-header {
+  display: flex;
+  justify-content: center;
+}
+
 body > .main-container {
   max-width: 1312px;
-  margin: 30px auto 0 auto;
+  margin: 0 auto;
 }

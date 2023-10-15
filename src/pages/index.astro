@@ -4,6 +4,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 
+import { Image } from 'astro:assets';
+import logo from "../assets/logo_with_name.png"; 
+
 const posts = (await getCollection('blog')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
@@ -15,41 +18,37 @@ const posts = (await getCollection('blog')).sort(
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 
 		<style>
-
 			#hero-post {
 				width: 100%;
-				height: 80vh;
 				display: grid;
-				grid-template-columns: 40% 60%;
+				grid-template-columns: 1fr;
 				align-items: baseline;
 			}
 
 			#hero-post .hero-post__enumeration {
-				text-align: right;
 				background: #FFE6A7;
-				height: 100%;
 			}
 
 			#hero-post .hero-post__enumeration p {
-				padding-right: 36px;
+				padding: 0 28px;
 				font-weight: 700;
 				font-size: 96px;
 			}
 
 			#hero-post .hero-post__info {
-				padding-left: 64px;
+				padding: 12px 28px 0 28px;
 			}
 
 			#hero-post .hero-post__info .hero-post__info__title {
-				font-size: 96px;
-				font-style: normal;
+				font-size: 40px;
 				font-weight: 700;
+				font-style: normal;
 				line-height: normal;
 			}
 
 			#hero-post .hero-post__info .hero-post__info__meta {
 				color: #6A6A6A;
-				font-size: 32px;
+				font-size: 24px;
 				padding-top: 12px;
 				font-style: normal;
 				font-weight: 300;
@@ -57,16 +56,57 @@ const posts = (await getCollection('blog')).sort(
 			}
 
 			#hero-post .hero-post__info .hero-post__info__excerpt {
-				padding-top: 40px;
-				font-family: Roboto Mono;
-				font-size: 40px;
-				font-style: normal;
+				padding-top: 22px;
+				font-size: 28px;
 				font-weight: 300;
+				font-style: normal;
 				line-height: normal;
+			}
+
+			@media (min-width: 1096px) {
+				#hero-post {
+					width: 100%;
+					max-height: 80vh;
+					display: grid;
+					grid-template-columns: 40% 60%;
+					align-items: baseline;
+				}
+
+				#hero-post .hero-post__enumeration {
+					text-align: right;
+					height: 100%;
+				}
+
+				#hero-post .hero-post__enumeration p {
+					padding-right: 36px;
+					font-weight: 700;
+					font-size: 96px;
+				}
+
+				#hero-post .hero-post__info {
+					padding-left: 64px;
+				}
+
+				#hero-post .hero-post__info .hero-post__info__title {
+					font-size: 96px;
+				}
+
+				#hero-post .hero-post__info .hero-post__info__meta {
+					font-size: 32px;
+				}
+
+				#hero-post .hero-post__info .hero-post__info__excerpt {
+					padding-top: 40px;
+					font-size: 40px;
+				}
+
 			}
 		</style>
 	</head>
 	<body>
+		<header class="navigation-header">
+			<Image src={logo} alt="A description of my image." width={120} height={120} />
+		</header>
 		<main class="main-container">
 			<section id="hero-post" class="hero-post">
 				<div class="hero-post__enumeration">
