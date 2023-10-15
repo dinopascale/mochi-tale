@@ -13,26 +13,75 @@ const posts = (await getCollection('blog')).sort(
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
+		<style>
+
+			#hero-post {
+				width: 100%;
+				height: 80vh;
+				display: grid;
+				grid-template-columns: 40% 60%;
+				align-items: baseline;
+			}
+
+			#hero-post .hero-post__enumeration {
+				text-align: right;
+				background: #FFE6A7;
+				height: 100%;
+			}
+
+			#hero-post .hero-post__enumeration p {
+				padding-right: 36px;
+				font-weight: 700;
+				font-size: 96px;
+			}
+
+			#hero-post .hero-post__info {
+				padding-left: 64px;
+			}
+
+			#hero-post .hero-post__info .hero-post__info__title {
+				font-size: 96px;
+				font-style: normal;
+				font-weight: 700;
+				line-height: normal;
+			}
+
+			#hero-post .hero-post__info .hero-post__info__meta {
+				color: #6A6A6A;
+				font-size: 32px;
+				padding-top: 12px;
+				font-style: normal;
+				font-weight: 300;
+				line-height: normal;
+			}
+
+			#hero-post .hero-post__info .hero-post__info__excerpt {
+				padding-top: 40px;
+				font-family: Roboto Mono;
+				font-size: 40px;
+				font-style: normal;
+				font-weight: 300;
+				line-height: normal;
+			}
+		</style>
 	</head>
 	<body>
-		<main>
-			<section class="last-post">
-				{}
-				<!-- <ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul> -->
+		<main class="main-container">
+			<section id="hero-post" class="hero-post">
+				<div class="hero-post__enumeration">
+					<p>01.</p>
+				</div>
+				<div class="hero-post__info">
+					<h1 class="hero-post__info__title">Some Title that should be short</h1>
+					<p class="hero-post__info__meta">
+						<FormattedDate date={new Date()}></FormattedDate>
+					</p>
+					<h4 class="hero-post__info__excerpt">
+						Some excerpt of some types here not too long
+						which will conclude with read more
+					</h4>
+				</div>
 			</section>
 		</main>
 	</body>
