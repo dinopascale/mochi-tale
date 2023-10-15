@@ -2,6 +2,8 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
+import Resets from '@julian_cataldo/astro-resets/Resets.astro';
+
 
 interface Props {
 	title: string;
@@ -13,6 +15,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 ---
+<Resets
+	removeAllMargins={true}
+	fontSmoothing={true}
+	fontSystem={true}
+	scrollSmooth={true}
+	borderBox={true}
+	scrollBarKeep={true}
+/>
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />

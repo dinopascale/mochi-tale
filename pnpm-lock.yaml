@@ -14,6 +14,9 @@ dependencies:
   '@astrojs/sitemap':
     specifier: ^3.0.1
     version: 3.0.1
+  '@julian_cataldo/astro-resets':
+    specifier: ^0.12.6
+    version: 0.12.6
   astro:
     specifier: ^3.3.0
     version: 3.3.0
@@ -773,6 +776,10 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
+    dev: false
+
+  /@julian_cataldo/astro-resets@0.12.6:
+    resolution: {integrity: sha512-/b1Dhz8VhietrDCK1D1LfERv94HCQcROGUrz8RMJh7Xq6tfmftP/KhdYlL3GEjFo2HGFq9jwfOsRoXVYGii4nw==}
     dev: false
 
   /@mdx-js/mdx@2.3.0:
