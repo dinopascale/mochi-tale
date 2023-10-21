@@ -11,8 +11,6 @@ const posts = (await getCollection('blog')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 
-const colors = ["#e26d5c", "#FFE6A7", "#e76f51", "#2a9d8f", "#432818", "#eed7c5", "#87f1ff"];
-const color = colors[Math.floor(Math.random()*colors.length)]
 ---
 
 <!doctype html>
@@ -20,113 +18,33 @@ const color = colors[Math.floor(Math.random()*colors.length)]
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 
-		<style define:vars={{color}}>
-			#hero-post {
-				width: 100%;
-				display: grid;
-				grid-template-columns: 1fr;
-				align-items: baseline;
-			}
-
-			#hero-post .hero-post__enumeration {
-				background: var(--color);
-			}
-
-			#hero-post .hero-post__enumeration p {
-				padding: 0 28px;
-				font-weight: 700;
-				font-size: 96px;
-			}
-
-			#hero-post .hero-post__info {
-				padding: 12px 28px 0 28px;
-			}
-
-			#hero-post .hero-post__info .hero-post__info__title {
-				font-size: 40px;
-				font-weight: 700;
-				font-style: normal;
-				line-height: normal;
-			}
-
-			#hero-post .hero-post__info .hero-post__info__meta {
-				color: #6A6A6A;
-				font-size: 24px;
-				padding-top: 12px;
-				font-style: normal;
-				font-weight: 300;
-				line-height: normal;
-			}
-
-			#hero-post .hero-post__info .hero-post__info__excerpt {
-				padding-top: 22px;
-				font-size: 28px;
-				font-weight: 300;
-				font-style: normal;
-				line-height: normal;
-			}
-
-			@media (min-width: 1096px) {
-				#hero-post {
-					width: 100%;
-					max-height: 80vh;
-					display: grid;
-					grid-template-columns: 40% 60%;
-					align-items: baseline;
-				}
-
-				#hero-post .hero-post__enumeration {
-					text-align: right;
-					height: 100%;
-				}
-
-				#hero-post .hero-post__enumeration p {
-					padding-right: 36px;
-					font-weight: 700;
-					font-size: 96px;
-				}
-
-				#hero-post .hero-post__info {
-					padding-left: 64px;
-				}
-
-				#hero-post .hero-post__info .hero-post__info__title {
-					font-size: 96px;
-				}
-
-				#hero-post .hero-post__info .hero-post__info__meta {
-					font-size: 32px;
-				}
-
-				#hero-post .hero-post__info .hero-post__info__excerpt {
-					padding-top: 40px;
-					font-size: 40px;
-				}
-
-			}
+		<style>
 		</style>
 	</head>
 	<body>
 		<header class="navigation-header">
 			<a href="/">
-				<Image src={logo} alt="logo for mochi tale blog" width={120} height={120} />
+				<Image src={logo} alt="logo for mochi tale blog" width={94} height={94} />
 			</a>
 		</header>
 		<main class="main-container">
 			<section id="hero-post" class="hero-post">
-				<div class="hero-post__enumeration">
-					<p>01.</p>
-				</div>
-				<div class="hero-post__info">
-					<h1 class="hero-post__info__title">Some Title that should be short</h1>
-					<p class="hero-post__info__meta">
-						<FormattedDate date={new Date()}></FormattedDate>
-					</p>
-					<h4 class="hero-post__info__excerpt">
-						Some excerpt of some types here not too long
-						which will conclude with read more
-					</h4>
-				</div>
+				<h1 class="hero-post__info__title h1">Some Title that should be short</h1>
+				<em class="hero-post__info__meta em">
+					<FormattedDate date={new Date()}></FormattedDate>
+				</em>
+				<p class="hero-post__info__excerpt mt-base">
+					Some excerpt of some types here not too long
+					which will conclude with read more
+				</p>
+			</section>
+			<section id="featured-posts" class="featured-posts">
+				<article class="featured-post">
+					<h2></h2>
+				</article>
+				<article class="featured-post">
+					<h2></h2>
+				</article>
 			</section>
 		</main>
 	</body>

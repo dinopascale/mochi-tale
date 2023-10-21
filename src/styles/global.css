@@ -1,5 +1,64 @@
+/* calculated with https://grtcalculator.com/ */
+
+:root {
+  --container-size: 612px;
+
+  --2xl-font-size: 37px;
+  --2xl-line-height: 58px;
+
+  --xl-font-size: 29px;
+  --xl-line-height: 47px;
+
+  --l-font-size: 23px;
+  --l-line-height: 38px;
+
+  --base-font-size: 18px;
+  --base-line-height: 31px;
+
+  --s-font-size: 14px;
+  --s-line-height: 25px;
+
+  --2xl-spacing: 50px;
+  --xl-spacing: 31px;
+  --l-spacing: 19px;
+  --m-spacing: 12px;
+  --s-spacing: 7px;
+  --xs-spacing: 4px;
+}
+
 body {
   font-family: "Roboto Mono", monospace;
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+}
+
+.h1 {
+  font-size: var(--2xl-font-size);
+  line-height: var(--2xl-line-height);
+}
+
+.h2 {
+  font-size: var(--xl-font-size);
+  line-height: var(--xl-line-height);
+}
+
+.h3 {
+  font-size: var(--l-font-size);
+  line-height: var(--l-line-height);
+}
+
+.h4 {
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+}
+
+.em {
+  font-size: var(--s-font-size);
+  line-height: var(--s-line-height);
+}
+
+.mt-base {
+  margin-top: var(--m-spacing);
 }
 
 body > .navigation-header {
@@ -8,6 +67,34 @@ body > .navigation-header {
 }
 
 body > .main-container {
-  max-width: 1312px;
+  max-width: var(--container-size);
   margin: 0 auto;
+}
+
+@media screen and (min-width: 612px) {
+  :root {
+    --container-size: 748px;
+
+    --2xl-font-size: 45px;
+    --2xl-line-height: 71px;
+
+    --xl-font-size: 36px;
+    --xl-line-height: 58px;
+
+    --l-font-size: 28px;
+    --l-line-height: 46px;
+
+    --base-font-size: 22px;
+    --base-line-height: 37px;
+
+    --s-font-size: 17px;
+    --s-line-height: 30px;
+
+    --2xl-spacing: 60px;
+    --xl-spacing: 37px;
+    --l-spacing: 23px;
+    --m-spacing: 14px;
+    --s-spacing: 9px;
+    --xs-spacing: 6px;
+  }
 }
