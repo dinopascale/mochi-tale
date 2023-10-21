@@ -19,33 +19,113 @@ const posts = (await getCollection('blog')).sort(
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 
 		<style>
+			.hero-post .hero-post__excerpt {
+				line-height: var(--l-line-height);
+				font-size: var(--l-font-size);
+			}
+
+			.featured-posts {
+				display: grid;
+				row-gap: var(--2xl-spacing);
+			}
 		</style>
 	</head>
 	<body>
-		<header class="navigation-header">
-			<a href="/">
-				<Image src={logo} alt="logo for mochi tale blog" width={94} height={94} />
-			</a>
+		<header class="navigation-header" id="navigation-header">
+			<div class="navigation-header__inner">
+				<a href="/">
+					<Image src={logo} alt="logo for mochi tale blog" width={94} height={94} />
+				</a>
+			</div>
 		</header>
-		<main class="main-container">
+		<main id="main-container">
 			<section id="hero-post" class="hero-post">
-				<h1 class="hero-post__info__title h1">Some Title that should be short</h1>
-				<em class="hero-post__info__meta em">
+				<h1 class="hero-post__title h1">Some Title that should be short</h1>
+				<em class="hero-post__meta em">
 					<FormattedDate date={new Date()}></FormattedDate>
 				</em>
-				<p class="hero-post__info__excerpt mt-base">
+				<p class="hero-post__excerpt mt-base">
 					Some excerpt of some types here not too long
 					which will conclude with read more
 				</p>
 			</section>
 			<section id="featured-posts" class="featured-posts">
 				<article class="featured-post">
-					<h2></h2>
+					<h3 class="featured-post__title h3">Another title</h3>
+					<em class="featured-post__meta em">
+						<FormattedDate date={new Date()}></FormattedDate>
+					</em>
+					<p class="featured-post__excerpt mt-base">
+						Some excerpt of some types here not too long
+						which will conclude with read more
+					</p>
 				</article>
 				<article class="featured-post">
-					<h2></h2>
+					<h3 class="featured-post__title h3">And again another title</h3>
+					<em class="featured-post__meta em">
+						<FormattedDate date={new Date()}></FormattedDate>
+					</em>
+					<p class="featured-post__excerpt mt-base">
+						Some excerpt of some types here not too long
+						which will conclude with read more
+					</p>
+				</article>
+				<article class="featured-post">
+					<h3 class="featured-post__title h3">And again again another title</h3>
+					<em class="featured-post__meta em">
+						<FormattedDate date={new Date()}></FormattedDate>
+					</em>
+					<p class="featured-post__excerpt mt-base">
+						Some excerpt of some types here not too long
+						which will conclude with read more
+					</p>
+				</article>
+				<article class="featured-post">
+					<h3 class="featured-post__title h3">And again again again another title</h3>
+					<em class="featured-post__meta em">
+						<FormattedDate date={new Date()}></FormattedDate>
+					</em>
+					<p class="featured-post__excerpt mt-base">
+						Some excerpt of some types here not too long
+						which will conclude with read more
+					</p>
+				</article>
+				<article class="featured-post">
+					<h3 class="featured-post__title h3">And again again again again another title</h3>
+					<em class="featured-post__meta em">
+						<FormattedDate date={new Date()}></FormattedDate>
+					</em>
+					<p class="featured-post__excerpt mt-base">
+						Some excerpt of some types here not too long
+						which will conclude with read more
+					</p>
 				</article>
 			</section>
 		</main>
+		<script>
+			const nheader = document.querySelector(".navigation-header__inner");
+			let lastKnownScrollPosition = 0;
+			let ticking = false;
+			
+			function shrinkHeaderOnScroll(scrollPos: number) {
+				if (scrollPos > 90) {
+						nheader?.classList.add('scrolled')
+					}  else {
+						nheader?.classList.remove('scrolled')
+					}
+			}
+			
+			window.addEventListener('scroll', () => {
+				lastKnownScrollPosition = window.scrollY;
+
+				if (!ticking) {
+					window.requestAnimationFrame(() => {
+						shrinkHeaderOnScroll(lastKnownScrollPosition);
+						ticking = false;
+					})
+					ticking = true;
+				};
+			}, {passive: true, capture: true})
+		</script>
 	</body>
 </html>

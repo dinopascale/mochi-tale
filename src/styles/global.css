@@ -24,12 +24,18 @@
   --m-spacing: 12px;
   --s-spacing: 7px;
   --xs-spacing: 4px;
+
+  --primary-color: #fafafa;
+  --secondary-color: #2a2a2a;
 }
 
 body {
   font-family: "Roboto Mono", monospace;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
   font-size: var(--base-font-size);
   line-height: var(--base-line-height);
+  display: relative;
 }
 
 .h1 {
@@ -57,23 +63,52 @@ body {
   line-height: var(--s-line-height);
 }
 
+.mt-2xl {
+  margin-top: var(--2xl-spacing);
+}
+
 .mt-base {
   margin-top: var(--m-spacing);
 }
 
-body > .navigation-header {
-  display: flex;
-  justify-content: center;
+body #navigation-header {
+  top: 0;
+  position: sticky;
+  height: 94px;
 }
 
-body > .main-container {
+body #navigation-header .navigation-header__inner {
+  justify-content: center;
+  display: flex;
+  background-color: var(--primary-color);
+  width: 100%;
+  height: 100%;
+}
+
+body #navigation-header .navigation-header__inner img {
+  transition: all 0.15s linear;
+}
+
+body #navigation-header .navigation-header__inner.scrolled {
+  height: 58px;
+}
+
+body #navigation-header .navigation-header__inner.scrolled img {
+  height: 58px;
+  width: 58px;
+}
+
+body #main-container {
+  padding: var(--m-spacing) var(--m-spacing) var(--2xl-spacing) var(--m-spacing);
   max-width: var(--container-size);
-  margin: 0 auto;
+  display: grid;
+  row-gap: calc(var(--2xl-spacing) * 1.681);
 }
 
 @media screen and (min-width: 612px) {
   :root {
     --container-size: 748px;
+    --aside-size: 462px;
 
     --2xl-font-size: 45px;
     --2xl-line-height: 71px;
@@ -96,5 +131,11 @@ body > .main-container {
     --m-spacing: 14px;
     --s-spacing: 9px;
     --xs-spacing: 6px;
+  }
+
+  #main-container {
+    max-width: var(--container-size);
+    margin-left: auto;
+    margin-right: auto;
   }
 }
