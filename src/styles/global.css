@@ -41,6 +41,7 @@ body {
 .h1 {
   font-size: var(--2xl-font-size);
   line-height: var(--2xl-line-height);
+  color: var(--accent);
 }
 
 .h2 {
@@ -69,6 +70,11 @@ body {
 
 .mt-base {
   margin-top: var(--m-spacing);
+}
+
+a {
+  text-decoration: underline;
+  color: inherit;
 }
 
 body #navigation-header {
