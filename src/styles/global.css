@@ -30,7 +30,7 @@
 }
 
 body {
-  font-family: "Roboto Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   color: var(--secondary-color);
   background-color: var(--primary-color);
   font-size: var(--base-font-size);
