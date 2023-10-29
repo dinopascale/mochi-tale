@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
+import ArticlePreview from '../components/ArticlePreview.astro';
 
 import { Image } from 'astro:assets';
 import logo from "../assets/logo_with_name.png"; 
@@ -26,6 +27,8 @@ const posts = (await getCollection('blog')).sort(
 
 			.featured-posts {
 				display: grid;
+				grid-template-columns: 1fr 1fr;
+				column-gap: var(--m-spacing);
 				row-gap: var(--2xl-spacing);
 			}
 		</style>
@@ -49,61 +52,36 @@ const posts = (await getCollection('blog')).sort(
 				<a class="read-more-link" href="#">Read more</a>
 			</section>
 			<section id="featured-posts" class="featured-posts">
-				<article class="featured-post">
-					<p class="featured-post__meta em">
-						<FormattedDate date={new Date()}></FormattedDate>
-					</p>
-					<a href="#"><h3 class="featured-post__title h3">Another title</h3></a>
-					<p class="featured-post__excerpt mt-xs">
-						Some excerpt of some types here not too long
-						which will conclude with read more
-					</p>
-					<a class="read-more-link" href="#">Read more</a>
-				</article>
-				<article class="featured-post">
-					<p class="featured-post__meta em">
-						<FormattedDate date={new Date()}></FormattedDate>
-					</p>
-					<a href="#"><h3 class="featured-post__title h3">And again another title</h3></a>
-					<p class="featured-post__excerpt mt-xs">
-						Some excerpt of some types here not too long
-						which will conclude with read more
-					</p>
-					<a class="read-more-link" href="#">Read more</a>
-				</article>
-				<article class="featured-post">
-					<p class="featured-post__meta em">
-						<FormattedDate date={new Date()}></FormattedDate>
-					</p>
-					<a href="#"><h3 class="featured-post__title h3">And again again another title</h3></a>
-					<p class="featured-post__excerpt mt-xs">
-						Some excerpt of some types here not too long
-						which will conclude with read more
-					</p>
-					<a class="read-more-link" href="#">Read more</a>
-				</article>
-				<article class="featured-post">
-					<p class="featured-post__meta em">
-						<FormattedDate date={new Date()}></FormattedDate>
-					</p>
-					<a href="#"><h3 class="featured-post__title h3">And again again again another title</h3></a>
-					<p class="featured-post__excerpt mt-xs">
-						Some excerpt of some types here not too long
-						which will conclude with read more
-					</p>
-					<a class="read-more-link" href="#">Read more</a>
-				</article>
-				<article class="featured-post">
-					<p class="featured-post__meta em">
-						<FormattedDate date={new Date()}></FormattedDate>
-					</p>
-					<a href="#"><h3 class="featured-post__title h3">And again again again again another title</h3></a>
-					<p class="featured-post__excerpt mt-xs">
-						Some excerpt of some types here not too long
-						which will conclude with read more
-					</p>
-					<a class="read-more-link" href="#">Read more</a>
-				</article>
+				<ArticlePreview 
+					date={new Date()}
+					title='Another title'
+					linkToArticle='#'
+					excerpt='Some excerpt of some types here not too long which will conclude with read more'>
+				</ArticlePreview>
+				<ArticlePreview 
+					date={new Date()}
+					title='And again another title'
+					linkToArticle='#'
+					excerpt='Some excerpt of some types here not too long which will conclude with read more'>
+				</ArticlePreview>
+				<ArticlePreview 
+					date={new Date()}
+					title='And again again another title'
+					linkToArticle='#'
+					excerpt='Some excerpt of some types here not too long which will conclude with read more'>
+				</ArticlePreview>
+				<ArticlePreview 
+					date={new Date()}
+					title='And again again again another title'
+					linkToArticle='#'
+					excerpt='Some excerpt of some types here not too long which will conclude with read more'>
+				</ArticlePreview>
+				<ArticlePreview 
+					date={new Date()}
+					title='And again again again again another title'
+					linkToArticle='#'
+					excerpt='Some excerpt of some types here not too long which will conclude with read more'>
+				</ArticlePreview>
 			</section>
 		</main>
 		<script>

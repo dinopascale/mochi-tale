@@ -1,0 +1,19 @@
+---
+import FormattedDate from '../components/FormattedDate.astro';
+
+interface Props {
+    date: Date;
+    linkToArticle: string;
+    title: string;
+    excerpt: string;
+}
+
+const { date, linkToArticle, title, excerpt } = Astro.props;
+---
+
+<article class="featured-post">
+    <p class="featured-post__meta em"><FormattedDate date={date}></FormattedDate></p>
+    <h3 class="featured-post__title h3">{title}</h3>
+    <p class="featured-post__excerpt mt-xs">{excerpt}</p>
+    <a class="read-more-link" href={linkToArticle}>Read more</a>
+</article>

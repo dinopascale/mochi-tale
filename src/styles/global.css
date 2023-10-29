@@ -155,7 +155,6 @@ body #main-container {
   color: var(--accent-color);
   font-weight: 900;
   display: inline-block;
-  padding-top: var(--xs-spacing);
 }
 
 .featured-post .read-more-link {
