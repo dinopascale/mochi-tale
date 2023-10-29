@@ -40,67 +40,69 @@ const posts = (await getCollection('blog')).sort(
 		</header>
 		<main id="main-container">
 			<section id="hero-post" class="hero-post">
-				<a href="#">
-					<h1 class="hero-post__title h1">Some Title that should be short</h1>
-				</a>
-				<em class="hero-post__meta em">
-					<FormattedDate date={new Date()}></FormattedDate>
-				</em>
-				<p class="hero-post__excerpt mt-base">
+				<p class="hero-post__meta"><FormattedDate date={new Date()}></FormattedDate></p>
+				<h1 class="hero-post__title h1">Some Title that should be short</h1>
+				<p class="hero-post__excerpt mt-xs">
 					Some excerpt of some types here not too long
-					which will conclude with read more
+					which will conclude with read mo...
 				</p>
+				<a class="read-more-link" href="#">Read more</a>
 			</section>
 			<section id="featured-posts" class="featured-posts">
 				<article class="featured-post">
+					<p class="featured-post__meta em">
+						<FormattedDate date={new Date()}></FormattedDate>
+					</p>
 					<a href="#"><h3 class="featured-post__title h3">Another title</h3></a>
-					<em class="featured-post__meta em">
-						<FormattedDate date={new Date()}></FormattedDate>
-					</em>
-					<p class="featured-post__excerpt mt-base">
+					<p class="featured-post__excerpt mt-xs">
 						Some excerpt of some types here not too long
 						which will conclude with read more
 					</p>
+					<a class="read-more-link" href="#">Read more</a>
 				</article>
 				<article class="featured-post">
+					<p class="featured-post__meta em">
+						<FormattedDate date={new Date()}></FormattedDate>
+					</p>
 					<a href="#"><h3 class="featured-post__title h3">And again another title</h3></a>
-					<em class="featured-post__meta em">
-						<FormattedDate date={new Date()}></FormattedDate>
-					</em>
-					<p class="featured-post__excerpt mt-base">
+					<p class="featured-post__excerpt mt-xs">
 						Some excerpt of some types here not too long
 						which will conclude with read more
 					</p>
+					<a class="read-more-link" href="#">Read more</a>
 				</article>
 				<article class="featured-post">
+					<p class="featured-post__meta em">
+						<FormattedDate date={new Date()}></FormattedDate>
+					</p>
 					<a href="#"><h3 class="featured-post__title h3">And again again another title</h3></a>
-					<em class="featured-post__meta em">
-						<FormattedDate date={new Date()}></FormattedDate>
-					</em>
-					<p class="featured-post__excerpt mt-base">
+					<p class="featured-post__excerpt mt-xs">
 						Some excerpt of some types here not too long
 						which will conclude with read more
 					</p>
+					<a class="read-more-link" href="#">Read more</a>
 				</article>
 				<article class="featured-post">
+					<p class="featured-post__meta em">
+						<FormattedDate date={new Date()}></FormattedDate>
+					</p>
 					<a href="#"><h3 class="featured-post__title h3">And again again again another title</h3></a>
-					<em class="featured-post__meta em">
-						<FormattedDate date={new Date()}></FormattedDate>
-					</em>
-					<p class="featured-post__excerpt mt-base">
+					<p class="featured-post__excerpt mt-xs">
 						Some excerpt of some types here not too long
 						which will conclude with read more
 					</p>
+					<a class="read-more-link" href="#">Read more</a>
 				</article>
 				<article class="featured-post">
-					<a href="#"><h3 class="featured-post__title h3">And again again again again another title</h3></a>
-					<em class="featured-post__meta em">
+					<p class="featured-post__meta em">
 						<FormattedDate date={new Date()}></FormattedDate>
-					</em>
-					<p class="featured-post__excerpt mt-base">
+					</p>
+					<a href="#"><h3 class="featured-post__title h3">And again again again again another title</h3></a>
+					<p class="featured-post__excerpt mt-xs">
 						Some excerpt of some types here not too long
 						which will conclude with read more
 					</p>
+					<a class="read-more-link" href="#">Read more</a>
 				</article>
 			</section>
 		</main>

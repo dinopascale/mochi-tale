@@ -27,10 +27,11 @@
 
   --primary-color: #fafafa;
   --secondary-color: #2a2a2a;
+  --accent-color: #793fdf;
 }
 
 body {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Montserrat", sans-serif;
   color: var(--secondary-color);
   background-color: var(--primary-color);
   font-size: var(--base-font-size);
@@ -41,7 +42,6 @@ body {
 .h1 {
   font-size: var(--2xl-font-size);
   line-height: var(--2xl-line-height);
-  color: var(--accent);
 }
 
 .h2 {
@@ -72,8 +72,12 @@ body {
   margin-top: var(--m-spacing);
 }
 
+.mt-xs {
+  margin-top: var(--xs-spacing);
+}
+
 a {
-  text-decoration: underline;
+  text-decoration: none;
   color: inherit;
 }
 
@@ -144,4 +148,21 @@ body #main-container {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.hero-post .read-more-link,
+.featured-post .read-more-link {
+  color: var(--accent-color);
+  font-weight: 900;
+  display: inline-block;
+  padding-top: var(--xs-spacing);
+}
+
+.featured-post .read-more-link {
+  font-size: var(--s-font-size);
+}
+
+.hero-post__meta {
+  font-size: var(--s-font-size);
+  line-height: var(--s-line-height);
 }
