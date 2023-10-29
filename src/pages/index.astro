@@ -8,7 +8,7 @@ import ArticlePreview from '../components/ArticlePreview.astro';
 import { Image } from 'astro:assets';
 import logo from "../assets/logo_with_name.png"; 
 
-const posts = (await getCollection('blog')).sort(
+const posts = (await getCollection('blog')).slice(0, 4).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 
@@ -27,10 +27,19 @@ const posts = (await getCollection('blog')).sort(
 
 			.featured-posts {
 				display: grid;
-				grid-template-columns: 1fr 1fr;
-				column-gap: var(--m-spacing);
 				row-gap: var(--2xl-spacing);
 			}
+
+			@media screen and (min-width: 612px) {
+				.featured-posts {
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					column-gap: var(--m-spacing);
+					row-gap: var(--2xl-spacing);
+				}
+			}
+
+			
 		</style>
 	</head>
 	<body>
@@ -43,13 +52,10 @@ const posts = (await getCollection('blog')).sort(
 		</header>
 		<main id="main-container">
 			<section id="hero-post" class="hero-post">
-				<p class="hero-post__meta"><FormattedDate date={new Date()}></FormattedDate></p>
-				<h1 class="hero-post__title h1">Some Title that should be short</h1>
-				<p class="hero-post__excerpt mt-xs">
-					Some excerpt of some types here not too long
-					which will conclude with read mo...
-				</p>
-				<a class="read-more-link" href="#">Read more</a>
+				<p class="hero-post__meta"><FormattedDate date={posts[0].data.pubDate}></FormattedDate></p>
+				<h1 class="hero-post__title h1">{posts[0].data.title}</h1>
+				<p class="hero-post__excerpt mt-xs">{posts[0].data.description}</p>
+				<a class="read-more-link" href={posts[0].slug}>Read more</a>
 			</section>
 			<section id="featured-posts" class="featured-posts">
 				<ArticlePreview 
@@ -73,12 +79,6 @@ const posts = (await getCollection('blog')).sort(
 				<ArticlePreview 
 					date={new Date()}
 					title='And again again again another title'
-					linkToArticle='#'
-					excerpt='Some excerpt of some types here not too long which will conclude with read more'>
-				</ArticlePreview>
-				<ArticlePreview 
-					date={new Date()}
-					title='And again again again again another title'
 					linkToArticle='#'
 					excerpt='Some excerpt of some types here not too long which will conclude with read more'>
 				</ArticlePreview>
